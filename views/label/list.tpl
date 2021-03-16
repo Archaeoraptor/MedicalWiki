@@ -7,7 +7,7 @@
 
     <title>标签列表 - Powered by MinDoc</title>
     <meta name="keywords" content="MinDoc,文档在线管理系统,WIKI,wiki,wiki在线,文档在线管理,接口文档在线管理,接口文档管理">
-    <meta name="description" content="MinDoc文档在线管理系统 {{.site_description}}">
+    <meta name="description" content="医学知识库 {{.site_description}}">
     <meta name="author" content="Minho" />
     <meta name="site" content="https://www.iminho.me" />
     <!-- Bootstrap -->

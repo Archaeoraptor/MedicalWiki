@@ -137,7 +137,7 @@ func (m *Option) Init() error {
 	}
 	if !o.QueryTable(m.TableNameWithPrefix()).Filter("option_name", "SITE_NAME").Exist() {
 		option := NewOption()
-		option.OptionValue = "MinDoc文档管理系统"
+		option.OptionValue = "医学知识库平台"
 		option.OptionName = "SITE_NAME"
 		option.OptionTitle = "站点名称"
 		if _, err := o.Insert(option); err != nil {
