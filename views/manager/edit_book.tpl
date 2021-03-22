@@ -148,7 +148,7 @@
             </div>
         </div>
     </div>
-    {{template "widgets/footer.tpl" .}}
+    {{template "widgets/footer.html" .}}
 </div>
 <div class="modal fade" id="changePrivatelyOwnedModal" tabindex="-1" role="dialog" aria-labelledby="changePrivatelyOwnedModalLabel">
     <div class="modal-dialog" role="document">

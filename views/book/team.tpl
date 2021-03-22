@@ -82,7 +82,7 @@
             </div>
         </div>
     </div>
-{{template "widgets/footer.tpl" .}}
+{{template "widgets/footer.html" .}}
 </div>
 
 <div class="modal fade" id="addTeamDialogModal" tabindex="-1" role="dialog" aria-labelledby="addTeamDialogModalLabel">

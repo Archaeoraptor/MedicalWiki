@@ -92,7 +92,7 @@
             </div>
         </div>
     </div>
-    {{template "widgets/footer.tpl" .}}
+    {{template "widgets/footer.html" .}}
 </div>
 <!-- Modal -->
 <div class="modal fade" id="addBookMemberDialogModal" tabindex="-1" role="dialog" aria-labelledby="addBookMemberDialogModalLabel">

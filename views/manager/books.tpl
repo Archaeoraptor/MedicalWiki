@@ -99,7 +99,7 @@
             </div>
         </div>
     </div>
-    {{template "widgets/footer.tpl" .}}
+    {{template "widgets/footer.html" .}}
 </div>
 <!-- Delete Book Modal -->
 <div class="modal fade" id="deleteBookModal" tabindex="-1" role="dialog" aria-labelledby="deleteBookModalLabel">

@@ -102,7 +102,7 @@
             </div>
         </div>
     </div>
-    {{template "widgets/footer.tpl" .}}
+    {{template "widgets/footer.html" .}}
 </div>
 
 
