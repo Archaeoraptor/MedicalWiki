@@ -25,7 +25,7 @@ func (this *HomeController) Index() {
 		urlPrefix = beego.URLFor("HomeController.Index")
 		cate      models.Category
 		lang      = this.GetString("lang")
-		tabName   = map[string]string{"recommend": "网站推荐", "latest": "最新发布", "popular": "热门书籍"}
+		tabName   = map[string]string{"recommend": "网站推荐", "latest": "最新发布", "popular": "热门文章"}
 	)
 
 	tab = strings.ToLower(this.GetString("tab"))
