@@ -67,7 +67,7 @@
                         <a href="{{urlfor "HomeController.Index" }}" title="发现"><i class="fa fa-globe"></i> 发现</a>
                     </li>
                     <li {{if .IsRank}}class="active"{{end}}>
-                        <a href="{{urlfor "RankController.Index"}}" title="榜单"><img src="/static/images/rank.png" alt=""> 榜单</a>
+                        <a href="{{urlfor "RankController.Index"}}" title="热门"><img src="/static/images/rank.png" alt=""> 热门</a>
                     </li>
                     {{if eq .HideTag false}}
                     <li class="{{if .IsLabel}}active{{end}}">
@@ -76,7 +76,7 @@
                     {{end}}
                     {{if eq .CloseSubmitEnter false}}
                     <li class="{{if .IsSubmit}}active{{end}}">
-                        <a href="{{urlfor "SubmitController.Index" }}" class="hidden-sm" title="收录"><i class="fa fa-check-square-o"></i> 收录</a>
+                        <a href="{{urlfor "SubmitController.Index" }}" class="hidden-sm" title="反馈推荐"><i class="fa fa-check-square-o"></i> 反馈推荐</a>
                     </li>
                     {{end}}
                     {{if eq .CloseOpenSourceLink false}}
