@@ -97,6 +97,10 @@ type ElasticSearchResult struct {
 		} `json:"hits"`
 		MaxScore interface{} `json:"max_score"`
 		Total    int         `json:"total"`
+		//Total struct{
+		//	Value int `json:"value"`
+		//	Relation string `json:"relation"`
+		//}
 	} `json:"hits"`
 	TimedOut bool `json:"timed_out"`
 	Took     int  `json:"took"`
