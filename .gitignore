@@ -48,3 +48,4 @@ output
 virtualroot
 docker
 license.cert
+go_build_github_com_TruthHun_BookStack

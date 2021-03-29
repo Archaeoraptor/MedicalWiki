@@ -54,7 +54,7 @@ func initialization() {
 		member.AuthMethod = "local"
 		member.Nickname = "管理员"
 		member.Role = 0
-		member.Email = "bookstack@qq.cn"
+		member.Email = "xi102@123.com"
 
 		if err := member.Add(); err != nil {
 			beego.Error("Member.Add => " + err.Error())
@@ -64,7 +64,7 @@ func initialization() {
 		book.MemberId = member.MemberId
 		book.BookName = "BookStack"
 		book.Status = 0
-		book.Description = "这是一个BookStack演示书籍，该书籍是由系统初始化时自动创建。"
+		book.Description = "这是一个BookStack演示文章，该文章是由系统初始化时自动创建。"
 		book.CommentCount = 0
 		book.PrivatelyOwned = 0
 		book.CommentStatus = "closed"
@@ -106,8 +106,8 @@ func initSeo() {
 		"('14','manage_dashboard','仪表盘','{title} - 医学知识库','{keywords}','{description}'),",
 		"('15','manage_users','用户管理','{title} - 医学知识库','{keywords}','{description}'),",
 		"('16','manage_users_edit','用户编辑','{title} - 医学知识库','{keywords}','{description}'),",
-		"('17','manage_project_list','书籍列表','{title} - 医学知识库','{keywords}','{description}'),",
-		"('18','manage_project_edit','书籍编辑','{title} - 医学知识库','{keywords}','{description}'),",
+		"('17','manage_project_list','内容列表','{title} - 医学知识库','{keywords}','{description}'),",
+		"('18','manage_project_edit','内容编辑','{title} - 医学知识库','{keywords}','{description}'),",
 		"('19','cate','首页','{title} - 医学知识库','{keywords}','{description}'),",
 		"('20','ucenter-share','用户主页','{title} - 医学知识库','{keywords}','{description}'),",
 		"('21','ucenter-collection','用户收藏','{title} - 医学知识库','{keywords}','{description}'),",
