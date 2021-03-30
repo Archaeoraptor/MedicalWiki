@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 25.0.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="图层_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 428.2 255.5" style="enable-background:new 0 0 428.2 255.5;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:url(#SVGID_1_);}
+	.st1{fill:url(#SVGID_2_);}
+	.st2{fill:#0071BC;}
+	.st3{font-family:'STZhongsong';}
+	.st4{font-size:28px;}
+	.st5{font-size:21px;}
+</style>
+<linearGradient id="SVGID_1_" gradientUnits="userSpaceOnUse" x1="254.4958" y1="-86.5848" x2="334.3112" y2="-61.983" gradientTransform="matrix(1 0 0 1 -69.37 141.82)">
+	<stop  offset="0" style="stop-color:#00A99D"/>
+	<stop  offset="1" style="stop-color:#1B1464"/>
+</linearGradient>
+<path class="st0" d="M256.4,111.9h-13.7v-8h13.7c4.9,0,8.9-4,8.9-8.9V80.3c0-4.9-4-8.9-8.9-8.9h-26.1V45.2c0-4.9-4-8.9-8.9-9l0,0
+	h-14.6c-4.9,0-8.9,4-8.9,8.9l0,0v14h-8.1V45.2c0-9.3,7.6-16.9,16.9-16.9h14.6c9.3,0,16.9,7.6,16.9,16.9v18.1h18.1
+	c9.3,0,16.9,7.6,16.9,16.9v14.6C273.3,104.3,265.7,111.8,256.4,111.9z"/>
+<linearGradient id="SVGID_2_" gradientUnits="userSpaceOnUse" x1="228.0095" y1="-50.4345" x2="307.6964" y2="-25.4198" gradientTransform="matrix(1 0 0 1 -69.37 141.82)">
+	<stop  offset="0" style="stop-color:#00A99D"/>
+	<stop  offset="1" style="stop-color:#1B1464"/>
+</linearGradient>
+<path class="st1" d="M221.3,146.9h-14.6c-9.3,0-16.9-7.6-16.9-16.9v-18.1h-18.1c-9.3,0-16.9-7.6-16.9-16.9V80.3
+	c0-9.3,7.6-16.9,16.9-16.9h22.1c24.5,0,44.5,19.9,44.5,44.5v22.1C238.3,139.3,230.8,146.8,221.3,146.9z M171.7,71.4
+	c-4.9,0-8.9,4-8.9,8.9l0,0v14.6c0,4.9,4,8.9,8.9,8.9h26.2v26.2c0,4.9,4,8.9,8.9,8.9h14.6c4.9,0,8.9-4,8.9-8.9v-22.1
+	c0-20.1-16.3-36.4-36.4-36.4H171.7z"/>
+<text transform="matrix(1 0 0 1 145.3999 187.1552)" class="st2 st3 st4">医学知识库</text>
+<text transform="matrix(1 0 0 1 68.8885 218.9341)" class="st2 st3 st5">Medical Knowledge Database</text>
+</svg>
