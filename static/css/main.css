@@ -728,7 +728,7 @@ a{color: #333}
 .qrcode-pay{max-width:100%;cursor: pointer;}
 
 
-.footer{margin-top: 45px;line-height: 1.7;}
+.footer{margin-top: 45px;line-height: 1.7;background-color:#EEEEEE;}
 .footer .container .row{margin-left: 0; margin-right: 0; border-top: 1px solid #dddddd;padding-top: 30px;padding-bottom: 30px;}
 .footer a{display: inline-block;}
 .friend-links .text-muted{margin-right: 5px;}

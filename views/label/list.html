@@ -1,10 +1,16 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
+    <style>
+        .myfooter {
+            position: relative;
+            bottom: 0;
+        }
+    </style>
 {{template "widgets/head.html" .}}
 </head>
-<body>
-<div class="manual-reader manual-container manual-search-reader">
+<body style="background-color: #EEEEEE;">
+<div class="manual-reader manual-container manual-search-reader" style="background-color: #FFFFFF;">
     {{template "widgets/header.html" .}}
     <div class="container-widescreen manual-body" style="padding-left: 15px;padding-right: 15px;">
         <div class="search-head">
@@ -31,6 +37,8 @@
     </div>
 
 </div>
-{{template "widgets/footer.html" .}}
+<div class="myfooter">
+    {{template "widgets/footer.html" .}}
+</div>
 </body>
 </html>
