@@ -1,5 +1,7 @@
 #!/bin/sh
 
+set -e
+
 # start go mod
 export GO111MODULE=on
 # set goproxy
