@@ -1,21 +1,85 @@
-#!/usr/bin/env bash
+#!/bin/sh
 
-##########
-VERSION=${1}
+# start go mod
+export GO111MODULE=on
+# set goproxy
+export GOPROXY=https://goproxy.cn
 
-# These are the values we want to pass for Version and BuildTime
-GITHASH=`git rev-parse HEAD 2>/dev/null`
+PROJECT_NAME="mm-wiki"
+INSTALL_NAME="install"
+BUILD_DIR="release"
+ROOT_DIR=$(pwd)
 
-BUILDAT=`date +%FT%T%z`
+# windows .exe
+if [ "${GOOS}" = "" ]; then
+  UNAME=$( command -v uname)
+  case $( "${UNAME}" | tr '[:upper:]' '[:lower:]') in
+    msys*|cygwin*|mingw*|nt|win*)
+      PROJECT_NAME=${PROJECT_NAME}".exe"
+      INSTALL_NAME=${INSTALL_NAME}".exe"
+      ;;
+  esac
+elif [ "${GOOS}" = "windows" ]; then
+    PROJECT_NAME=${PROJECT_NAME}".exe"
+    INSTALL_NAME=${INSTALL_NAME}".exe"
+fi
 
-# Setup the -ldflags option for go build here, interpolate the variable values
-LDFLAGS="-s -w -X github.com/TruthHun/BookStack/utils.GitHash=${GITHASH} -X github.com/TruthHun/BookStack/utils.BuildAt=${BUILDAT} -X github.com/TruthHun/BookStack/utils.Version=${VERSION} -X myquant.cn/algoserv/algoserv/admin.Binary=true"
+rm -rf ${BUILD_DIR}
 
-##########
+build_app() {
+    mkdir -p "${ROOT_DIR}"/${BUILD_DIR}/conf
+    mkdir -p "${ROOT_DIR}"/${BUILD_DIR}/logs
+    mkdir -p "${ROOT_DIR}"/${BUILD_DIR}/static
+    mkdir -p "${ROOT_DIR}"/${BUILD_DIR}/views
+    mkdir -p "${ROOT_DIR}"/${BUILD_DIR}/docs
 
-CGO_ENABLED=0 GOOS=darwin GOARCH=amd64 go build -v -o output/mac/BookStack -ldflags "${LDFLAGS}"
-CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -v -o output/linux/BookStack -ldflags "${LDFLAGS}"
-CGO_ENABLED=0 GOOS=windows GOARCH=amd64 go build -v -o output/windows/BookStack.exe -ldflags "${LDFLAGS}"
-upx -f -9 output/mac/BookStack
-upx -f -9 output/linux/BookStack
-upx -f -9 output/windows/BookStack.exe
+    /bin/cp -r "${ROOT_DIR}"/conf/default.conf "${ROOT_DIR}"/${BUILD_DIR}/conf/
+    /bin/cp -r "${ROOT_DIR}"/conf/template.conf "${ROOT_DIR}"/${BUILD_DIR}/conf/
+    /bin/cp -r "${ROOT_DIR}"/scripts/* "${ROOT_DIR}"/${BUILD_DIR}/
+    /bin/cp -r "${ROOT_DIR}"/docs/* "${ROOT_DIR}"/${BUILD_DIR}/docs/
+    /bin/cp -r "${ROOT_DIR}"/views/* "${ROOT_DIR}"/${BUILD_DIR}/views/
+    /bin/cp -r "${ROOT_DIR}"/static/* "${ROOT_DIR}"/${BUILD_DIR}/static/
+
+    /bin/cp -r "${ROOT_DIR}"/CHANGELOG.md "${ROOT_DIR}"/${BUILD_DIR}
+    /bin/cp -r "${ROOT_DIR}"/README.md "${ROOT_DIR}"/${BUILD_DIR}
+    /bin/cp -r "${ROOT_DIR}"/README_eng.md "${ROOT_DIR}"/${BUILD_DIR}
+    /bin/cp -r "${ROOT_DIR}"/LICENSE "${ROOT_DIR}"/${BUILD_DIR}
+
+    chmod -R 755 "${ROOT_DIR}"/${BUILD_DIR}/conf/
+    chmod -R 755 "${ROOT_DIR}"/${BUILD_DIR}/logs/
+    chmod -R 755 "${ROOT_DIR}"/${BUILD_DIR}/static/
+    chmod -R 755 "${ROOT_DIR}"/${BUILD_DIR}/views/
+    chmod -R 755 "${ROOT_DIR}"/${BUILD_DIR}/*.sh
+
+    go build -o ${PROJECT_NAME} ./
+
+    if [ -f "${ROOT_DIR}/${PROJECT_NAME}"  ]; then
+        mv "${ROOT_DIR}"/${PROJECT_NAME} "${ROOT_DIR}"/${BUILD_DIR}/
+    fi
+    return
+}
+
+build_install() {
+
+    mkdir -p "${ROOT_DIR}"/${BUILD_DIR}/install
+    # Todo: 目录切换失败时输出错误信息
+    cd "${ROOT_DIR}"/install || exit
+    go build -o ${INSTALL_NAME} ./
+    chmod -R 755 "${ROOT_DIR}"/${BUILD_DIR}/install/
+
+    if [ -f "${ROOT_DIR}/install/${INSTALL_NAME}"  ]; then
+        mv "${ROOT_DIR}"/install/${INSTALL_NAME} "${ROOT_DIR}"/${BUILD_DIR}/install
+    fi
+
+    cd ../
+    return
+}
+
+build() {
+    echo ">> MM-Wiki start build!"
+    build_app
+    build_install
+    return
+}
+
+build
