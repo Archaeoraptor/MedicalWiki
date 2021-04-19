@@ -23,6 +23,8 @@ Yet Another Medical Content Management System
 - [ ] 支持PostgreSQL和MySQL 8.0
 - [ ] 升级富文本编辑器wangEditor
 - [ ] 改善搜索效果，添加针对医学的中文分词
+- [ ] 集成OnlyOffice
+- [ ] 支持查看文档修改历史和添加版本控制
 
 ## 关于
 
