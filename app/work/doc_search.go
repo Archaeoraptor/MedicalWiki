@@ -1,13 +1,13 @@
 package work
 
 import (
+	"time"
+
 	"github.com/astaxie/beego"
 	"github.com/astaxie/beego/logs"
 	"github.com/phachon/mm-wiki/app/models"
 	"github.com/phachon/mm-wiki/app/services"
 	"github.com/phachon/mm-wiki/app/utils"
-	"sync"
-	"time"
 )
 
 var (
@@ -23,7 +23,7 @@ const (
 
 type DocSearch struct {
 	// 并发锁，理论上不存在并发的情况，为了安全
-	lock sync.RWMutex
+	// lock sync.RWMutex
 	// work 运行状态
 	runStatus int
 	// work 中是否有任务正在运行
@@ -57,14 +57,14 @@ func (d *DocSearch) Start() {
 			if e != nil {
 				logs.Info("[DocSearchWork] load all doc index panic: %v", e)
 			}
-			d.lock.Lock()
+			// d.lock.Lock()
 			d.runStatus = RunStatusStop
 			d.isTaskRunning = false
-			d.lock.Unlock()
+			// d.lock.Unlock()
 		}()
-		d.lock.Lock()
+		// d.lock.Lock()
 		d.runStatus = RunStatusRunning
-		d.lock.Unlock()
+		// d.lock.Unlock()
 		for {
 			select {
 			case <-time.Tick(t):
@@ -110,9 +110,9 @@ func (d *DocSearch) updateAllDocIndex() {
 
 	logs.Info("[DocSearchWork] start load all doc index")
 
-	d.lock.Lock()
+	// d.lock.Lock()
 	d.isTaskRunning = true
-	d.lock.Unlock()
+	// d.lock.Unlock()
 
 	// 分批次更新，每批次 100
 	batchUpdateDocNum, _ := beego.AppConfig.Int("search::batch_update_doc_num")
@@ -122,9 +122,9 @@ func (d *DocSearch) updateAllDocIndex() {
 	services.DocIndexService.UpdateAllDocIndex(batchUpdateDocNum)
 	services.DocIndexService.Flush()
 
-	d.lock.Lock()
+	// d.lock.Lock()
 	d.isTaskRunning = false
-	d.lock.Unlock()
+	// d.lock.Unlock()
 
 	logs.Info("[DocSearchWork] finish all doc index flush")
 
