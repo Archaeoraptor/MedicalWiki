@@ -186,7 +186,7 @@ func (this *MainController) Search() {
 		}
 		documents, err = models.DocumentModel.GetDocumentsByDocumentIds(searchDocIds)
 	}
-	documents, err = models.DocumentModel.GetDocumentsByLikeName(keyword)
+	// documents, err = models.DocumentModel.GetDocumentsByLikeName(keyword)
 	if err != nil {
 		this.ErrorLog("搜索文档出错：" + err.Error())
 		this.ViewError("搜索文档错误！")
