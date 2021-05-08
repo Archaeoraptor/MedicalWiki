@@ -19,3 +19,4 @@ install.lock
 
 node_modules/
 docs/search_dict/
+data/
