@@ -3,6 +3,12 @@ package app
 import (
 	"flag"
 	"fmt"
+	"log"
+	"os"
+	"path"
+	"path/filepath"
+	"time"
+
 	"github.com/astaxie/beego"
 	"github.com/astaxie/beego/logs"
 	"github.com/fatih/color"
@@ -12,11 +18,6 @@ import (
 	"github.com/phachon/mm-wiki/app/work"
 	"github.com/phachon/mm-wiki/global"
 	"github.com/snail007/go-activerecord/mysql"
-	"log"
-	"os"
-	"path"
-	"path/filepath"
-	"time"
 )
 
 var (
@@ -71,17 +72,22 @@ func initFlag() {
 
 // poster logo
 func poster() {
-	fg := color.New(color.FgBlue)
+	fg := color.New(color.FgCyan)
 	logo := `
-                                            _   _      _ 
- _ __ ___    _ __ ___           __      __ (_) | | __ (_)
-| '_ ' _ \  | '_ ' _ \   _____  \ \ /\ / / | | | |/ / | |
-| | | | | | | | | | | | |_____|  \ V  V /  | | |   <  | |
-|_| |_| |_| |_| |_| |_|           \_/\_/   |_| |_|\_\ |_|
+	███▄ ▄███▓▓█████ ▓█████▄  ██▓ ▄████▄   ▄▄▄       ██▓     █     █░ ██▓ ██ ▄█▀ ██▓
+	▓██▒▀█▀ ██▒▓█   ▀ ▒██▀ ██▌▓██▒▒██▀ ▀█  ▒████▄    ▓██▒    ▓█░ █ ░█░▓██▒ ██▄█▒ ▓██▒
+	▓██    ▓██░▒███   ░██   █▌▒██▒▒▓█    ▄ ▒██  ▀█▄  ▒██░    ▒█░ █ ░█ ▒██▒▓███▄░ ▒██▒
+	▒██    ▒██ ▒▓█  ▄ ░▓█▄   ▌░██░▒▓▓▄ ▄██▒░██▄▄▄▄██ ▒██░    ░█░ █ ░█ ░██░▓██ █▄ ░██░
+	▒██▒   ░██▒░▒████▒░▒████▓ ░██░▒ ▓███▀ ░ ▓█   ▓██▒░██████▒░░██▒██▓ ░██░▒██▒ █▄░██░
+	░ ▒░   ░  ░░░ ▒░ ░ ▒▒▓  ▒ ░▓  ░ ░▒ ▒  ░ ▒▒   ▓▒█░░ ▒░▓  ░░ ▓░▒ ▒  ░▓  ▒ ▒▒ ▓▒░▓  
+	░  ░      ░ ░ ░  ░ ░ ▒  ▒  ▒ ░  ░  ▒     ▒   ▒▒ ░░ ░ ▒  ░  ▒ ░ ░   ▒ ░░ ░▒ ▒░ ▒ ░
+	░      ░      ░    ░ ░  ░  ▒ ░░          ░   ▒     ░ ░     ░   ░   ▒ ░░ ░░ ░  ▒ ░
+		   ░      ░  ░   ░     ░  ░ ░            ░  ░    ░  ░    ░     ░  ░  ░    ░  
+					   ░          ░                                                  													   
 ` +
-		"Author: phachon\r\n" +
+		"Author: xi102\r\n" +
 		"Version: " + Version + "\r\n" +
-		"Link: https://github.com/phachon/mm-wiki"
+		"Link: https://xi102.js.org"
 	fg.Println(logo)
 }
 
