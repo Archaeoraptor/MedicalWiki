@@ -5,6 +5,7 @@ go 1.12
 replace github.com/coreos/go-systemd => ./vendor/github.com/coreos/go-systemd
 
 require (
+	github.com/766b/go-outliner v0.0.0-20180511142203-fc6edecdadd7 // indirect
 	github.com/asaskevich/govalidator v0.0.0-20190424111038-f61b66f89f4a // indirect
 	github.com/astaxie/beego v1.12.0
 	github.com/fatih/color v1.7.0
